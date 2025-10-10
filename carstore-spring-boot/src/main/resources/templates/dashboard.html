@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="[http://www.thymeleaf.org](http://www.thymeleaf.org)">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body>
+
+        <div th:replace="~{fragments :: navbar}"></div>
+
+        <div class="container mt-5">
+
+            <h1>Car Dashboard</h1>
+
+            <table class="table table-striped">
+
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cor</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="car : ${cars}">
+                    <td th:text="${car.name}"></td>
+                    <td th:text="${car.color}"></td>
+                    <td><!-- Ações futuras: editar/    --></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>
